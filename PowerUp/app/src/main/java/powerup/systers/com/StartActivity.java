@@ -33,7 +33,7 @@ public class StartActivity extends Activity {
     Context context;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         context = StartActivity.this;
@@ -44,8 +44,8 @@ public class StartActivity extends Activity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(StartActivity.this);
-                builder.setTitle(context.getResources().getString(R.string.start_title_message))
-                        .setMessage(getResources().getString(R.string.start_dialog_message));
+                builder.setTitle(context.getResources().getString(R.string.start_title_message));
+                        builder.setMessage(getResources().getString(R.string.start_dialog_message));
                 builder.setPositiveButton(getString(R.string.start_confirm_message), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         startActivityForResult(new Intent(StartActivity.this, AvatarRoomActivity.class), 0);
